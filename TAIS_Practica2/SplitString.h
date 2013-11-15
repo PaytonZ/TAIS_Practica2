@@ -9,7 +9,7 @@
 #define SPLITSTRING_H_
 
 #include <string>
-using namespace std;
+typedef std::string string;
 
 string* split(string str, string delim, int& outSize);
 string* split(string str, char delim, int& outSize);

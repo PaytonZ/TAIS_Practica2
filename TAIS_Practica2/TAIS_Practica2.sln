@@ -3,6 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TAIS_Practica2", "TAIS_Practica2.vcxproj", "{FF20D28A-C648-4B28-9EF1-8FE6D1B77FE6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{29C7F07D-90F2-4064-87C1-376D19EA1FBD}"
+	ProjectSection(SolutionItems) = preProject
+		movies.txt = movies.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32

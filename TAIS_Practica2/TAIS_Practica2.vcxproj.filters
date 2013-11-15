@@ -21,10 +21,10 @@
     <ClCompile Include="GrafoNombres.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
-    <ClCompile Include="Grafo.cpp">
+    <ClCompile Include="SplitString.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
-    <ClCompile Include="SplitString.cpp">
+    <ClCompile Include="Grafo.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,9 +38,6 @@
     <ClInclude Include="Tabla.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Grafo.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="Hash.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -48,6 +45,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="SplitString.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Grafo.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
