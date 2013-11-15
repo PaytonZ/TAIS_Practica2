@@ -67,12 +67,15 @@
     <ClCompile Include="Grafo.cpp" />
     <ClCompile Include="GrafoNombres.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SplitString.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Excepciones.h" />
     <ClInclude Include="Grafo.h" />
     <ClInclude Include="GrafoNombres.h" />
     <ClInclude Include="Hash.h" />
+    <ClInclude Include="Lista.h" />
+    <ClInclude Include="SplitString.h" />
     <ClInclude Include="Tabla.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
