@@ -1,9 +1,9 @@
 /*
- * SplitString.cpp
- *
- *  Created on: 17/10/2012
- *      Author: alberto
- */
+* SplitString.cpp
+*
+*  Created on: 17/10/2012
+*      Author: alberto
+*/
 
 #include "SplitString.h"
 

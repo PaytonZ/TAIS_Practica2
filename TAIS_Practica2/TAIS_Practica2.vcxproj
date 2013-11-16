@@ -64,12 +64,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BFS.cpp" />
+    <ClCompile Include="DFS.cpp" />
     <ClCompile Include="Grafo.cpp" />
     <ClCompile Include="GrafoNombres.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SplitString.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BFS.h" />
+    <ClInclude Include="DFS.h" />
     <ClInclude Include="Excepciones.h" />
     <ClInclude Include="Grafo.h" />
     <ClInclude Include="GrafoNombres.h" />
