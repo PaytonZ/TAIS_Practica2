@@ -13,11 +13,11 @@ void BFS::BFSprv(Grafo &G,int s)
 	marked[s]=true;
 	p.push(s);
 	dist[s]=0;
-	while(!p.empty())
+	while(!p.empty() || marked[dest]==false)
 	{
 		int v= p.top();
 		p.pop();
-const		std::list<int>* lista= G.adj(v);
+		const std::list<int>* lista= G.adj(v);
 		for (std::list<int>::const_iterator iterator =lista->begin(), end =lista->end(); iterator != end; ++iterator) {
 			int w = *iterator;
 			if(!marked[w])
@@ -30,18 +30,6 @@ const		std::list<int>* lista= G.adj(v);
 		}
 
 	}
-
-	/*for(int i=0; i < dist.size() ; i++)
-	{
-		std::cout << " i : " << i << "--->" << dist[i] << std::endl;
-		if(dist[i] <= 10 )
-			{std::string a;
-				std::cin >> a;
-
-		}
-	}*/
-
-	
 
 }
 std::list<int>* BFS::pathTo(int v)

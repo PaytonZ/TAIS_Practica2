@@ -20,9 +20,10 @@ private:
 	vectorInt edgeTo;
 	vectorInt dist;
 	int source;
+	int dest;
 
 public:
-	BFS(Grafo &G, int s)
+	BFS(Grafo &G, int s,int d)
 	{
 		marked.resize(G.V());
 		for(unsigned int i=0; i < marked.size(); i++)
@@ -38,6 +39,7 @@ public:
 		}
 
 		source=s;
+		dest=s;
 		BFSprv(G,source);
 	}
 	void BFSprv(Grafo &G,int s);

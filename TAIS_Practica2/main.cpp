@@ -24,31 +24,30 @@ int main()
 
 	GradoSeparacion("Kevin Bacon");
 
-	//GrafoNombres pelis("movies.txt", "/");
-
+/*	GrafoNombres pelis("movies.txt", "/");
 
 	
-	/*int bacon=0;
-	std::list<int> *a = pelis.G().adj(pelis.indice("Kevin Bacon"));
+	int bacon=0;
+	const std::list<int> *a = pelis.G().adj(pelis.indice("Kevin Bacon"));
 	//std::list<int> *a = pelis.G().adj(pelis.indice("'Breaker' Morant (1980)"));
-	std::list<int> *b;
+	const std::list<int> *b;
 	for (std::list<int>::const_iterator iterator =a->begin(), end =a->end(); iterator != end; ++iterator) {
 	
 		int w= *iterator ;
-		std::cout << "peli:" << std::endl;
+		std::cout << "peli:" ;
 		std::cout << pelis.nombre(w) << std::endl;
 		b = pelis.G().adj(w);
-
-		/*for (std::list<int>::const_iterator iterator2 =b->begin(), end =b->end(); iterator2 != end; ++iterator2) {
+		std::cout << "actores:" << std::endl;
+		for (std::list<int>::const_iterator iterator2 =b->begin(), end =b->end(); iterator2 != end; ++iterator2) {
 			int z= *iterator2 ;
-				std::cout << "actores?:" << std::endl;
+				
 			std::cout << pelis.nombre(z) << std::endl;
 		}
-	}*/
+	}
 
 
 	//	std::cout <<  " baaacon" << bacon << std::endl;
-
+	*/
 	std::cout << "Fin ej";
 	string ab;
 	std::cin >> ab;
@@ -78,7 +77,7 @@ void GradoSeparacion(const string& origen) {
 			DFS dfs(pelis.G(),vorigen);
 			if(dfs.marked(vdestino))
 			{
-				BFS bfs(pelis.G(),vorigen);
+				BFS bfs(pelis.G(),vorigen,vdestino);
 				std::list<int> * camino = bfs.pathTo(vdestino);
 				/*for (std::list<int>::const_iterator iterator =camino->begin(), end =camino->end(); iterator != end; ++iterator) {
 					int a= *iterator;
