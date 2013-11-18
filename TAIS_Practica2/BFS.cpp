@@ -13,9 +13,9 @@ void BFS::BFSprv(Grafo &G,int s)
 	marked[s]=true;
 	p.push(s);
 	dist[s]=0;
-	while(!p.empty() || marked[dest]==false)
+	while(!p.empty())
 	{
-		int v= p.top();
+		int v= p.front();
 		p.pop();
 		const std::list<int>* lista= G.adj(v);
 		for (std::list<int>::const_iterator iterator =lista->begin(), end =lista->end(); iterator != end; ++iterator) {
@@ -32,11 +32,9 @@ void BFS::BFSprv(Grafo &G,int s)
 	}
 
 }
-std::list<int>* BFS::pathTo(int v)
+std::list<int>* BFS::pathTo(const int &v) const
 {
 	assert(marked[v]==true);
-	std::cout << "DISTANCIA MAS CORTA A V:" << dist[v] <<  std::endl;
-
 	std::list<int> *resultado = new std::list<int>;
 	for (int x = v; x != source; x = edgeTo[x])
 		resultado->push_front(x);
@@ -44,6 +42,11 @@ std::list<int>* BFS::pathTo(int v)
 
 	return resultado;
 
+}
+int BFS::costeRutaMinima(const int &v) const
+{
+
+	return dist[v];
 }
 
 BFS::~BFS(void)

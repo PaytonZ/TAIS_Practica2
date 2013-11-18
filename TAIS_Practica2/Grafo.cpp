@@ -13,7 +13,7 @@ void Grafo::addEdge(int v, int w)
 	_adj[v]->push_back(w);
 	_adj[w]->push_back(v);
 }
-const std::list<int>* Grafo::adj(int v)
+const std::list<int>* Grafo::adj(int v) const
 {
 	return _adj[v];
 }

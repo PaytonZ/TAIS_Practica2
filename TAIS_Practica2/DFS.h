@@ -18,9 +18,8 @@ public:
 	{
 		mark.resize(g.V());
 		DFSprv(g,s);
-
 	}
 	~DFS();
-	bool marked(int v); 
+	bool marked(const int &v) const; 
 };
 

@@ -158,7 +158,7 @@ public:
 	 * @param clave clave a buscar.
 	 * @return si existe algún elemento con esa clave.
 	 */
-	bool esta(const C &clave) {
+	bool esta(const C &clave) const {
 		// Obtenemos el índice asociado a la clave.
 		unsigned int ind = ::hash(clave) % _tam;
 		
@@ -175,7 +175,7 @@ public:
 	 * @return valor asociado a dicha clave.
 	 * @throw EClaveInexistente si la clave no existe en la tabla.
 	 */
-	const V &consulta(const C &clave) {
+	const V &consulta(const C &clave) const {
 		
 		// Obtenemos el índice asociado a la clave.
 		unsigned int ind = ::hash(clave) % _tam;

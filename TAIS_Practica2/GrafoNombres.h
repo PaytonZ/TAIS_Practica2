@@ -29,19 +29,30 @@ private:
 public:
 	GrafoNombres(string filename, string delimiter)
 	{
-
-		nombres= new string[3000000]();
-		std::ifstream file(filename);
-
 		string linea;
 		string *pelicula;
 		string p;
+		int tam_grafo=0;
 		int num_actores;
-		_G = new Grafo(3000000);
+
 		int indice=0;
 		int indice_aux=0;
 		int indice_peli=0;
 
+		std::ifstream file(filename);
+		while(std::getline(file,linea))
+		{
+			pelicula = split(linea,delimiter,num_actores);
+			tam_grafo+=num_actores;
+		}
+
+		_G = new Grafo(tam_grafo);
+		nombres= new string[tam_grafo]();
+
+
+		file.close();
+
+		file.open(filename);
 
 
 		while(std::getline(file,linea))
@@ -60,8 +71,6 @@ public:
 				{
 					indice_aux = tn.consulta(pelicula[i]);
 					assert(nombres[indice_aux]==pelicula[i]);
-					//std::cout << "ADDING EDGE! Desde " << nombres[indice_peli] << " ----> " << nombres[indice_aux] <<std::endl;
-
 					_G->addEdge(indice_peli,indice_aux);
 				}
 				else
@@ -70,30 +79,22 @@ public:
 					p = pelicula[i];
 					nombres[indice] = p;
 					_G->addEdge(indice_peli,indice);
-
-					//std::cout << "ADDING EDGE! Desde " << nombres[indice_peli] << " ----> " << nombres[indice_aux] <<std::endl;
 					indice++;
 				}
-
-
 			}
-
-
 		}
-
-		std::cout <<  "Se cargaron " << indice << " actores/peliculas xD" << std::endl ;
-
-
-
+		std::cout <<  "Se cargaron " << indice << " actores/peliculas" << std::endl ;
+		file.close();
 
 	}
 	~GrafoNombres()
 	{
-
+		delete _G;
+		delete []nombres;
 
 	}
-	bool contiene(string s); // existe un vértice de nombre s?
-	int indice(string s); // devuelve el número asociado al vértice s
+	bool contiene(string s) const; // existe un vértice de nombre s?
+	int indice(string s) const ;// devuelve el número asociado al vértice s
 	const string& nombre(int v) const; // devuelve el nombre asociado al número v
 	Grafo& G() const; // devuelve el grafo de números
 };

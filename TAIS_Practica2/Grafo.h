@@ -42,7 +42,7 @@ public:
 
 	void addEdge(int v, int w);
 	int V() const;
-	const std::list<int>* adj(int v);
+	const std::list<int>* adj(int v) const;
 
 
 };

@@ -21,7 +21,7 @@ const	std::list<int> *lista= g.adj(v);
 	}
 }
 
-bool DFS::marked(int v)
+bool DFS::marked(const int &v) const
 {
 	return mark[v];
 

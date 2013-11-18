@@ -9,12 +9,12 @@
 
 
 // existe un vértice de nombre s?
-bool GrafoNombres::contiene(string s) 
+bool GrafoNombres::contiene(string s) const
 {
 	return tn.esta(s);
 }
 // devuelve el número asociado al vértice s
-int GrafoNombres::indice(string s) 
+int GrafoNombres::indice(string s) const
 {
 	return tn.consulta(s);
 }

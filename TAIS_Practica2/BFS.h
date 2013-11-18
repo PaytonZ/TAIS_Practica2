@@ -8,8 +8,9 @@
 #include "Grafo.h"
 #include <stack>
 #include "DFS.h"
-#include <list>
-typedef std::stack<int> pila;
+#include <queue>
+
+typedef std::queue<int> pila;
 typedef std::vector<int> vectorInt;
 
 class BFS
@@ -20,10 +21,10 @@ private:
 	vectorInt edgeTo;
 	vectorInt dist;
 	int source;
-	int dest;
+	
 
 public:
-	BFS(Grafo &G, int s,int d)
+	BFS(Grafo &G, int s)
 	{
 		marked.resize(G.V());
 		for(unsigned int i=0; i < marked.size(); i++)
@@ -39,11 +40,11 @@ public:
 		}
 
 		source=s;
-		dest=s;
 		BFSprv(G,source);
 	}
 	void BFSprv(Grafo &G,int s);
-	std::list<int>* pathTo(int v);
+	std::list<int>* pathTo(const int &v) const;
+	int costeRutaMinima(const int &v) const;
 	~BFS(void);
 };
 
