@@ -22,7 +22,7 @@ int main()
 
 {
 	//GradoSeparacion("Kevin Bacon");
-	NumeroDeBacon("Kevin Bacon");
+	NumeroDeBacon("Jane Fonda");
 	std::cout << "Fin ej";
 	string ab;
 	std::cin >> ab;
@@ -96,8 +96,12 @@ void NumeroDeBacon(const string& actor)
 		for(int i=0; i < pelis.G().V() ; i++)
 		{
 
-			int bacon = bfs.costeRutaMinima(i) /2;
+			int bacon = bfs.costeRutaMinima(i) ;
+			if(bacon % 2 ==0)//Son actores y no peliculas.
+			{
+			bacon/=2;
 			v[bacon]++;
+			}
 		}
 		
 		std::cout << "Origen: " << pelis.nombre(vorigen) <<std::endl; 
