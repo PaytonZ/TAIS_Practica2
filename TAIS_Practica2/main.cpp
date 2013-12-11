@@ -21,17 +21,29 @@ void NumeroDeBacon(const string& actor);
 int main()
 
 {
-	//GradoSeparacion("Kevin Bacon");
-	NumeroDeBacon("Jane Fonda");
-	std::cout << "Fin ej";
-	string ab;
-	std::cin >> ab;
+	string actor;
+	std::cout << "Funcion Grado Separacion" << std::endl;
+
+	std::cout << "Introduce actor origen:";
+	std::getline(std::cin,actor);
+
+
+	GradoSeparacion(actor);
+
+	std::cout << "Funcion Numero de Bacon" << std::endl;
+
+	std::cout << "Introduce actor origen:";
+	std::getline(std::cin,actor);
+
+	NumeroDeBacon(actor);
+
+
 
 	std::cout << "Fin ej";
 
-	std::cin >> ab;
+	string a ;
 
-	return 0;
+	std::cin >> a ;
 }
 
 void GradoSeparacion(const string& origen) {
