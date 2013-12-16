@@ -9,9 +9,7 @@
 
 #include <iostream>
 #include "Grafo.h"
-#include "Tabla.h"
 #include "GrafoNombres.h"
-#include "DFS.h"
 #include "BFS.h"
 #include "g2_chrono.h"
 

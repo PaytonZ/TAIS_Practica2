@@ -8,7 +8,6 @@
 #pragma once
 
 #include <iostream>
-#include "Tabla.h"
 #include "Grafo.h"
 #include "SplitString.h"
 #include <fstream>
@@ -33,7 +32,6 @@ public:
 	{
 
 		string linea;
-		string *pelicula;
 		string p;
 		int tam_grafo=0,num_actores,  index=0, indice_aux=0 , indice_peli=0;
 
