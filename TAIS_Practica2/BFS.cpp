@@ -38,10 +38,10 @@ std::shared_ptr<std::list<int>> BFS::pathTo(const int &v) const
 	assert(marked[v]==true);
 	std::shared_ptr<std::list<int>> resultado (new std::list<int>);
 	for (int x = v; x != source; x = edgeTo[x])
-		{
-			resultado.get()->push_front(x);
-		
-		}
+	{
+		resultado.get()->push_front(x);
+
+	}
 	resultado->push_front(source);
 
 	return resultado;
@@ -51,6 +51,10 @@ int BFS::costeRutaMinima(const int &v) const
 {
 
 	return dist[v];
+}
+bool BFS::hayRuta(const int &v) const
+{
+	return marked[v];
 }
 
 BFS::~BFS(void)

@@ -13,6 +13,7 @@
 #include "GrafoNombres.h"
 #include "DFS.h"
 #include "BFS.h"
+#include "g2_chrono.h"
 
 void GradoSeparacion(const string& origen);
 void NumeroDeBacon(const string& actor);
@@ -49,28 +50,48 @@ int main()
 void GradoSeparacion(const string& origen) {
 
 	std::cout << "Cargando grafo de peliculas... " << std::endl;
+	g2::StopWatch watch;
 	GrafoNombres pelis("movies.txt", "/");
+	auto time = watch.elapsedMs().count();
+	std::cout << "Grafo Nombres tardo ... " << time <<"ms" << std::endl;
 	if(pelis.contiene(origen))
 	{
 		int vorigen = pelis.indice(origen);
 		string actordestino;
+		g2::StopWatch watch;
+		BFS bfs(pelis.G(),vorigen);
+		auto time = watch.elapsedMs().count();
+		std::cout << "BFS tardo ... " << time <<"ms" << std::endl;
 		std::cout << "Escribe actor destino:" ;
+
 		std::getline(std::cin,actordestino);
 		while(actordestino !="")
 		{
 			if(pelis.contiene(actordestino))
 			{
 				int vdestino = pelis.indice(actordestino);
-				DFS dfs(pelis.G(),vorigen);
-				if(dfs.marked(vdestino))
+
+				if(bfs.hayRuta(vdestino))
 				{
-					BFS bfs(pelis.G(),vorigen);
+
 					auto camino = bfs.pathTo(vdestino);
 					std::cout << actordestino << " tiene un numero de Bacon de " << bfs.costeRutaMinima(vdestino) /2 << std::endl;
+					bool actor=true;
 					for (std::list<int>::const_iterator iterator =camino->begin(), end =camino->end(); iterator != end; ++iterator) {
-						int actor= *iterator;
+						uint v = *iterator;
 
-						std::cout << pelis.nombre(actor) << std::endl;
+						std::cout << pelis.nombre(v) << std::endl;
+						if(v != vdestino) 
+						{if (actor) {
+							std::cout << "\twas in" << std::endl;
+							actor=!actor;
+						}
+						else
+						{
+							std::cout << "\twith" << std::endl;
+							actor=!actor;
+						}
+						}
 
 					}
 				}
@@ -111,11 +132,11 @@ void NumeroDeBacon(const string& actor)
 			int bacon = bfs.costeRutaMinima(i) ;
 			if(bacon % 2 ==0)//Son actores y no peliculas.
 			{
-			bacon/=2;
-			v[bacon]++;
+				bacon/=2;
+				v[bacon]++;
 			}
 		}
-		
+
 		std::cout << "Origen: " << pelis.nombre(vorigen) <<std::endl; 
 		std::cout << "Numero" << "\t" << "# de actores" <<std::endl; 
 		for(int i=0; i < 11 ; i++)
@@ -126,3 +147,4 @@ void NumeroDeBacon(const string& actor)
 	}
 
 }
+

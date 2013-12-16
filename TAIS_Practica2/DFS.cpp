@@ -11,7 +11,7 @@
 void DFS::DFSprv(Grafo &g,int v)
 {
 	mark[v]=true;
-const	std::list<int> *lista= g.adj(v);
+	auto lista= g.adj(v);
 	for (std::list<int>::const_iterator iterator =lista->begin(), end =lista->end(); iterator != end; ++iterator) {
 		int w= *iterator;
 		if(!marked(w))

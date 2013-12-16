@@ -80,6 +80,7 @@
     <ClInclude Include="BFS.h" />
     <ClInclude Include="DFS.h" />
     <ClInclude Include="Excepciones.h" />
+    <ClInclude Include="g2_chrono.h" />
     <ClInclude Include="Grafo.h" />
     <ClInclude Include="GrafoNombres.h" />
     <ClInclude Include="Hash.h" />

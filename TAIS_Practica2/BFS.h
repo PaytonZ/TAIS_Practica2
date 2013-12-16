@@ -46,6 +46,7 @@ public:
 	void BFSprv(Grafo &G,int s);
 std::shared_ptr<std::list<int>> BFS::pathTo(const int &v) const;
 	int costeRutaMinima(const int &v) const;
+	bool hayRuta(const int &v) const;
 	~BFS(void);
 };
 
