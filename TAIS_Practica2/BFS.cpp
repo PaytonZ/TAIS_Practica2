@@ -6,6 +6,7 @@
 *********************************************************************************/
 
 #include "BFS.h"
+#include <memory>
 
 
 void BFS::BFSprv(Grafo &G,int s)
@@ -32,12 +33,15 @@ void BFS::BFSprv(Grafo &G,int s)
 	}
 
 }
-std::list<int>* BFS::pathTo(const int &v) const
+std::shared_ptr<std::list<int>> BFS::pathTo(const int &v) const
 {
 	assert(marked[v]==true);
-	std::list<int> *resultado = new std::list<int>;
+	std::shared_ptr<std::list<int>> resultado (new std::list<int>);
 	for (int x = v; x != source; x = edgeTo[x])
-		resultado->push_front(x);
+		{
+			resultado.get()->push_front(x);
+		
+		}
 	resultado->push_front(source);
 
 	return resultado;

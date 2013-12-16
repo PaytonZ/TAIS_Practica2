@@ -12,6 +12,7 @@
 #include "Grafo.h"
 #include "SplitString.h"
 #include <fstream>
+#include <memory>
 
 typedef std::string string;
 typedef unsigned int uint;
@@ -30,7 +31,7 @@ public:
 	GrafoNombres(string filename, string delimiter)
 	{
 		string linea;
-		string *pelicula;
+		
 		string p;
 		int tam_grafo=0;
 		int num_actores;
@@ -42,7 +43,7 @@ public:
 		std::ifstream file(filename);
 		while(std::getline(file,linea))
 		{
-			pelicula = split(linea,delimiter,num_actores);
+			auto pelicula = split(linea,delimiter,num_actores);
 			tam_grafo+=num_actores;
 		}
 
@@ -57,26 +58,26 @@ public:
 
 		while(std::getline(file,linea))
 		{
-			pelicula = split(linea,delimiter,num_actores);
+		auto	pelicula = split(linea,delimiter,num_actores);
 			indice_peli = indice;
-			assert(!tn.esta(pelicula[0]));
-			tn.inserta(pelicula[0],indice_peli);
-			p =  pelicula[0];
+			assert(!tn.esta(pelicula.get()[0]));
+			tn.inserta(pelicula.get()[0],indice_peli);
+			p =  pelicula.get()[0];
 			nombres[indice_peli] = p;
 			indice++;
 
 			for(int i=1; i < num_actores ; i++)
 			{
-				if(contiene(pelicula[i]))
+				if(contiene(pelicula.get()[i]))
 				{
-					indice_aux = tn.consulta(pelicula[i]);
-					assert(nombres[indice_aux]==pelicula[i]);
+					indice_aux = tn.consulta(pelicula.get()[i]);
+					assert(nombres[indice_aux]==pelicula.get()[i]);
 					_G->addEdge(indice_peli,indice_aux);
 				}
 				else
 				{
-					tn.inserta(pelicula[i],indice);
-					p = pelicula[i];
+					tn.inserta(pelicula.get()[i],indice);
+					p = pelicula.get()[i];
 					nombres[indice] = p;
 					_G->addEdge(indice_peli,indice);
 					indice++;

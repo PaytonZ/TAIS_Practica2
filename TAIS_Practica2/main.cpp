@@ -65,7 +65,7 @@ void GradoSeparacion(const string& origen) {
 				if(dfs.marked(vdestino))
 				{
 					BFS bfs(pelis.G(),vorigen);
-					std::list<int> * camino = bfs.pathTo(vdestino);
+					auto camino = bfs.pathTo(vdestino);
 					std::cout << actordestino << " tiene un numero de Bacon de " << bfs.costeRutaMinima(vdestino) /2 << std::endl;
 					for (std::list<int>::const_iterator iterator =camino->begin(), end =camino->end(); iterator != end; ++iterator) {
 						int actor= *iterator;

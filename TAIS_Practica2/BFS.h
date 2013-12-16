@@ -9,14 +9,15 @@
 #include <stack>
 #include "DFS.h"
 #include <queue>
+#include <memory>
 
-typedef std::queue<int> pila;
+typedef std::queue<int> cola;
 typedef std::vector<int> vectorInt;
 
 class BFS
 {
 private:
-	pila p;
+	cola p;
 	vectorBool marked;
 	vectorInt edgeTo;
 	vectorInt dist;
@@ -43,7 +44,7 @@ public:
 		BFSprv(G,source);
 	}
 	void BFSprv(Grafo &G,int s);
-	std::list<int>* pathTo(const int &v) const;
+std::shared_ptr<std::list<int>> BFS::pathTo(const int &v) const;
 	int costeRutaMinima(const int &v) const;
 	~BFS(void);
 };
